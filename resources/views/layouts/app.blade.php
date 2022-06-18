@@ -1,36 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{asset('assets/admin/fonts/stylesheet.css')}}">
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/nucleo/css/nucleo.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}"
+          type="text/css">
+    <!-- Page plugins -->
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/fullcalendar/dist/fullcalendar.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap-select.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/jquery-confirm.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/dashboard.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}" type="text/css">
+    @stack('styles')
 
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+</head>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
+<body>
+
+@include('includes.navbar')
+<div class="main-content" id="panel">
+    @include('includes.header')
+    @include('includes.page-header')
+    <div class="container-fluid mt--6">
+        @yield('content')
+    </div>
+    <script src="{{asset('assets/admin/vendor/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/js-cookie/js.cookie.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
+
+    <script src="{{asset('assets/admin/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/jquery-confirm.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/dashboard.js')}}"></script>
+    @stack('scripts')
+</body>
 </html>
