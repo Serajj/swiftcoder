@@ -38,7 +38,7 @@ Author URL: http://w3layouts.com
                             <a class="nav-link" href="#">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact">Contact</a>
+                            <a class="nav-link" href="/contact">Contact</a>
                         </li>
                     </ul>
                     <!-- search-right -->
