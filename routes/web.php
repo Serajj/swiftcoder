@@ -69,3 +69,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
         return view('media.index');
     })->name('media.index');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
