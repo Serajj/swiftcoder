@@ -2,14 +2,14 @@
     <div class="scrollbar-inner">
         <!-- Brand -->
         <div class="sidenav-header  d-flex  align-items-center">
-            <a class="navbar-brand" href="{{ route('home') }}" data-toggle="tooltip" data-original-title="{{ setting('company_name') }}">
-                @if (setting('company_logo'))
-                <img alt="{{ setting('company_name') }}"
+            <a class="navbar-brand" href="{{ route('home') }}" data-toggle="tooltip" data-original-title="{{ Helper::setting('company_name') }}">
+                @if (Helper::setting('company_logo'))
+                <img alt="{{ Helper::setting('company_name') }}"
                     height="45"
                     class="navbar-brand-img"
-                    src="{{ asset(setting('company_logo')) }}">
+                    src="{{ asset(Helper::setting('company_logo')) }}">
                 @else
-                {{ substr(setting('company_name'), 0, 15) }}...
+                {{ substr(Helper::setting('company_name'), 0, 15) }}...
                 @endif
             </a>
             <div class=" ml-auto ">
